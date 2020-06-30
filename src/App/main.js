@@ -106,13 +106,6 @@ const initForm = () => {
             
             console.log('en form submit')
             // console.log($('form.en__component--page').serialize())
-            dataLayer.push({
-                'event': 'gaEvent',
-                'eventCategory': 'petitions',
-                'eventAction': 'signup',
-                'eventLabel': '2020-plastic_retailer_seveneleven',
-                'eventValue': undefined
-            });
             
             $("form.en__component--page").submit();
         },
