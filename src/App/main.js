@@ -1,6 +1,6 @@
 import './main.scss'
 const ProgressBar = require('progressbar.js')
-const {$} = window
+const {$, dataLayer} = window
 
 $(document).ready(function() {
     console.log( "ready!" );
@@ -20,7 +20,7 @@ function initProgressBar() {
         trailWidth: 1,
         svgStyle: {width: '100%', height: '100%'}
     });
-    bar.animate(0.6);
+    bar.animate(0.15);
 }
 
 function createYearOptions() {
@@ -106,6 +106,13 @@ const initForm = () => {
             
             console.log('en form submit')
             // console.log($('form.en__component--page').serialize())
+            dataLayer.push({
+                'event': 'gaEvent',
+                'eventCategory': 'petitions',
+                'eventAction': 'signup',
+                'eventLabel': '2020-plastic_retailer_seveneleven',
+                'eventValue': undefined
+            });
             
             $("form.en__component--page").submit();
         },
