@@ -1031,7 +1031,11 @@ function animatecounters() {
     $('.timer').each(count);
     function count(options) {
         var $this = $(this);
-        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+        options = $.extend({
+            formatter: function (value, options) {
+                return currency(value, { precision: 0, separator: ',' }).format();
+            },
+        }, options || {}, $this.data('countToOptions') || {});
         $this.countTo(options);
     }
 
